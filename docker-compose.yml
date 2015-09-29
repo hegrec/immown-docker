@@ -1,0 +1,49 @@
+nginx:
+  image: nginx
+  container_name: immown-nginx
+  volumes:
+    - ./files/nginx.conf:/etc/nginx/nginx.conf:ro
+    - ./codebases/api/content:/var/www/cdn
+  expose:
+    - "80"
+  ports:
+    - "80:80"
+  links:
+    - web
+mysql:
+  image: mysql:5.7
+  container_name: immown-mysql
+  volumes:
+    - /etc/mysql:/var/lib/mysql
+  expose:
+    - "3306"
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_DATABASE: immodispo
+    MYSQL_USER: immodispo
+    MYSQL_PASSWORD: admin123
+    MYSQL_ROOT_PASSWORD: admin123
+api:
+  build: ./codebases/api
+  container_name: immown-api
+  ports:
+    - "3001:3001"
+  volumes:
+   - ./codebases/api:/code
+  links:
+    - mysql
+web:
+  build: ./codebases/web
+  container_name: immown-web
+  ports:
+   -  "3000:3000"
+  volumes:
+   - ./codebases/web:/code
+  links:
+    - mysql
+redis:
+  image: redis
+  container_name: immown-redis
+  ports:
+    - "6379:6379"

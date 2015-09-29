@@ -11,6 +11,7 @@ Requirements
 Once you have all the requirements, bootstrapping the stack should be really fast.
 
 What happens when I bootstrap the stack?
+
 1. Docker clones images for mysql, redis, and nginx
 2. Docker builds images for the immown api and web app codebases
 3. Edits the hosts file to insert a resolver for immown.dev
@@ -27,3 +28,6 @@ The database will be cleared of data everytime you rerun the `init.sh` but if yo
 
 ### Version
 0.0.1
+
+
+PS: Yes the S3 keys are revoked and the API keys changed.

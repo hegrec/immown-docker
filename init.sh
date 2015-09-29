@@ -10,21 +10,21 @@ if [ ! -d "./codebases" ]; then
 fi
 
 if [ ! -d "./codebases/api" ]; then
-    git clone git@github.com:hegrec/immodispo-api.git ./codebases/api
+    git clone git@github.com:hegrec/immown-api.git ./codebases/api
     cd codebases/api
     npm install
     cd ../..
 fi
 
 if [ ! -d "./codebases/crawl" ]; then
-    git clone git@github.com:hegrec/immodispo-crawl.git ./codebases/crawl
+    git clone git@github.com:hegrec/immown-crawl.git ./codebases/crawl
     cd codebases/crawl
     npm install
     cd ../..
 fi
 
 if [ ! -d "./codebases/web" ]; then
-    git clone git@github.com:hegrec/immodispo-web.git ./codebases/web
+    git clone git@github.com:hegrec/immown-web.git ./codebases/web
     cd codebases/web
     npm install
     cd ../..
